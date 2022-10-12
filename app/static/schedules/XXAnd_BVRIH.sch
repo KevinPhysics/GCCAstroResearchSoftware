@@ -1,0 +1,18 @@
+TITLE    = 'object'
+OBSERVER = 'Clem'
+SOURCE   = 'XX And'
+RA       = '19.36420833'
+DEC      = '38.95055556'
+EPOCH    = 2000
+LSTSTART = '14:00:00'
+FILTER   = 'B,V,R,I,H'
+DURATION = '174,39,28,55,32'
+BINNING  = '1,1'
+SUBIMAGE = '0,0,3056,3056'
+PRIORITY = 0
+COMPRESS = 0
+IMAGEDIR = '/usr/local/telescope/user/images'
+CCDCALIB = 'NONE'
+SHUTTER  = 'OPEN'
+REPEAT   = 60
+/

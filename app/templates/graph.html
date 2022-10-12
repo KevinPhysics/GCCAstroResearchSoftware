@@ -1,0 +1,174 @@
+<html>
+<body>
+
+{% block content %}
+<table>
+    <tr>
+        <td>
+            <img src="{{ starSelectGraphic }}" alt="Select a star" height="400" width="533">
+            <form action="" method='post' novalidate>
+                {{ reset_form.hidden_tag() }}
+                {{ reset_form.submitReset() }}
+            </form>
+        </td>
+        <td>
+            <form action='' method='post' novalidate>
+                {{ star_form.hidden_tag() }}
+                {{ star_form.select_star() }}
+                <!-- <select name="star_select" onChange=>
+                {% for star in star_list %}
+                    <option value={{ star[0] }}>{{ star[0] }}</option>
+                {% endfor %}
+                </select>-->
+                <br>
+                {{ star_form.select_filters(size=32) }}
+                <br>
+                {{ star_form.submitStar() }}
+            </form>
+            <hr>
+            <form action='' method='post' novalidate>
+                {{ sched_form.hidden_tag() }}
+                <table>
+                    <tr>
+                        <td>{{ sched_form.fileName.label }}</td>
+                        <td>{{ sched_form.fileName(size=32, value=defaults[0]) }}</td>
+                        {% for error in sched_form.fileName.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.title.label }}</td>
+                        <td>{{ sched_form.title(size=32) }}</td>
+                        {% for error in sched_form.title.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.observer.label }}</td>
+                        <td>{{ sched_form.observer(size=32) }}</td>
+                        {% for error in sched_form.observer.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.source.label }}</td>
+                        <td>{{ sched_form.source(size=32, value=defaults[1]) }}</td>
+                        {% for error in sched_form.source.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.ra.label }}</td>
+                        <td>{{ sched_form.ra(size=32, value=defaults[2]) }}</td>
+                        {% for error in sched_form.ra.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.dec.label }}</td>
+                        <td>{{ sched_form.dec(size=32, value=defaults[3]) }}</td>
+                        {% for error in sched_form.dec.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.epoch.label }}</td>
+                        <td>{{ sched_form.epoch(size=32) }}</td>
+                        {% for error in sched_form.epoch.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.lststart.label }}</td>
+                        <td>{{ sched_form.lststart(size=32) }}</td>
+                        {% for error in sched_form.lststart.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.filters.label }}</td>
+                        <td>{{ sched_form.filters(size=32, value=defaults[4]) }}</td>
+                        {% for error in sched_form.filters.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.duration.label }}</td>
+                        <td>{{ sched_form.duration(size=32, value=defaults[5]) }}</td>
+                        {% for error in sched_form.duration.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.binning.label }}</td>
+                        <td>{{ sched_form.binning(size=32) }}</td>
+                        {% for error in sched_form.binning.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.subimage.label }}</td>
+                        <td>{{ sched_form.subimage(size=32) }}</td>
+                        {% for error in sched_form.subimage.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.priority.label }}</td>
+                        <td>{{ sched_form.priority(size=32) }}</td>
+                        {% for error in sched_form.priority.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.compress.label }}</td>
+                        <td>{{ sched_form.compress(size=32) }}</td>
+                        {% for error in sched_form.compress.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.imagedir.label }}</td>
+                        <td>{{ sched_form.imagedir(size=32) }}</td>
+                        {% for error in sched_form.imagedir.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.ccdcalib.label }}</td>
+                        <td>{{ sched_form.ccdcalib(size=32) }}</td>
+                        {% for error in sched_form.ccdcalib.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.shutter.label }}</td>
+                        <td>{{ sched_form.shutter(size=32) }}</td>
+                        {% for error in sched_form.shutter.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>{{ sched_form.repeat.label }}</td>
+                        <td>{{ sched_form.repeat(size=32) }}</td>
+                        {% for error in sched_form.repeat.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </tr>
+                </table>
+                <p>{{ sched_form.submitSched() }}</p>
+            </form>
+        </td>
+        <td>
+            <img src="{{ starField }}" alt="Star Field" height="331" width="350">
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+    </tr>
+</table>
+{% endblock %}
+
+</body>
+</html>
